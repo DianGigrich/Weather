@@ -12,6 +12,8 @@ gitbash, github, vscode
 
 ## Usage
 
+![Example of a weather search.](/Document.png)
+
 To get the weather forecast
 
 ## Credits
