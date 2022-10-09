@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    background-color: gray;
+    text-align: center;
+}
+
+
+.container {
+    border: 4px solid black;
+}
+
+
+.currentWeather {
+    padding: 10px;
+    background-image: linear-gradient(to bottom right, lightblue, blue);
+    border: 4px solid black;
+}
+
+.fore {
+    border: 4px solid black;
+    margin: 10px;
+    padding: 10px;
+}
