@@ -26,3 +26,8 @@ header {
     margin: 10px;
     padding: 20px;
 }
+
+#oldsearches {
+    display: flex;
+    flex-direction: column;
+}

@@ -10,8 +10,6 @@ var oldsearchButton;
 //     event.preventDefault();
 
 // };
-
-
 // DISPLAY TODAYS WEATHER
 function displayWeather(wurther) {
     console.log("5")
@@ -46,6 +44,7 @@ var getWeather = function (event) {
     event.preventDefault();
     console.log("0")
     var citySearch = citySearchEl.value.trim();
+    
     console.log(".5", citySearch)
     var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + citySearch + '&units=standard&APPID=562ae09e8bccd88b6d91837ed2170f31';
     console.log("1", citySearch)
@@ -144,18 +143,25 @@ renderSearches();
 
 
 function renderSearches() {
-    var retrieveArray = JSON.parse(localStorage.getItem("Array"))
-    oldsearchButton = document.createElement("button")
+    var retrieveArray = JSON.parse(localStorage.getItem("Array")) || []
+
 
     for (var i = 0; i < retrieveArray.length; i++) {
-        oldsearchButton.textContent = retrieveArray[i]
+
+            oldsearchButton = document.createElement("button")
+
+            console.log(retrieveArray[i])
+            oldsearchButton.textContent = retrieveArray[i]
+           
 
         console.log("21", oldsearches)
         oldsearches.appendChild(oldsearchButton)
+            // }
     }
 }
 //   ============================================================PREVIOUS CITY
-// DISPLAY TODAYS WEATHER
+
+// DISPLAY old search TODAYS WEATHER
 function displayWeather(wurther) {
     console.log("5")
     console.log(wurther)
@@ -184,11 +190,11 @@ function displayWeather(wurther) {
     HotDog.textContent = "Humidity: " + wurther.main.humidity
 }
 
-// GET TODAYS WEATHER
+// GET old search TODAYS WEATHER
 var getWeather2 = function (event) {
     event.preventDefault();
     console.log("0")
-    var citySearch = event.target.value;
+    var citySearch = event.target.textContent;
 
     console.log("1.5", event.target.value)
     var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + citySearch + '&units=standard&APPID=562ae09e8bccd88b6d91837ed2170f31';
@@ -212,7 +218,7 @@ var getWeather2 = function (event) {
         });
 };
 
-// DISPLAY FORECAST
+// DISPLAY old search FORECAST
 var fore = document.querySelector('.fore')
 
 function displayForecast(wetha) {
@@ -238,11 +244,11 @@ function displayForecast(wetha) {
     }
 }
 
-// GET FORECAST
+// GET old search FORECAST
 var getForecast2 = function (event) {
     event.preventDefault();
     console.log("10")
-    var citySearch = event.target.value.trim();
+    var citySearch = event.target.textContent;
 
     var apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + citySearch + '&units=standard&APPID=562ae09e8bccd88b6d91837ed2170f31';
 
