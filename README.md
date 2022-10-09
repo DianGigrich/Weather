@@ -12,7 +12,7 @@ gitbash, github, vscode
 
 ## Usage
 
-![Example of a weather search.](/Document.png)
+![Example of a weather search.](Document.png)
 
 https://diangigrich.github.io/Weather/
 

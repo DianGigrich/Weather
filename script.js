@@ -6,10 +6,8 @@ var apiKey = "562ae09e8bccd88b6d91837ed2170f31"
 var oldsearches = document.querySelector("#oldsearches")
 var array = []
 var oldsearchButton;
-// var formSubmitHandler = function (event) {
-//     event.preventDefault();
 
-// };
+
 // DISPLAY TODAYS WEATHER
 function displayWeather(wurther) {
     console.log("5")
