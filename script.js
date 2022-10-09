@@ -3,14 +3,15 @@ var citySearchEl = document.getElementById('cityname')
 var weatherContainerEl = document.querySelector('weather')
 var searchButton = document.querySelector('.btn')
 var apiKey = "562ae09e8bccd88b6d91837ed2170f31"
+var oldsearches = document.querySelector(".oldsearches")
 
-var Tacoma;
+// var formSubmitHandler = function (event) {
+//     event.preventDefault();
 
-var formSubmitHandler = function (event) {
-    event.preventDefault();
+// };
 
-};
 
+// DISPLAY TODAYS WEATHER
 function displayWeather(wurther) {
     console.log("5")
     console.log(wurther)
@@ -39,6 +40,7 @@ function displayWeather(wurther) {
     HotDog.textContent = "Humidity: " + wurther.main.humidity
 }
 
+// GET TODAYS WEATHER
 var getWeather = function (event) {
     event.preventDefault();
     console.log("0")
@@ -54,7 +56,7 @@ var getWeather = function (event) {
                 response.json().then(function (data) {
                     console.log("4")
                     displayWeather(data);
-                    
+
                 });
             } else {
                 console.error('Error: ' + response.statusText);
@@ -64,6 +66,8 @@ var getWeather = function (event) {
             console.error('Unable to connect');
         });
 };
+
+// DISPLAY FORECAST
 var fore = document.querySelector('.fore')
 
 function displayForecast(wetha) {
@@ -75,23 +79,21 @@ function displayForecast(wetha) {
         var div = document.createElement('div')
         div.setAttribute("class", "list")
 
-        var icon = wetha.list[i*8].weather[0].icon
+        var icon = wetha.list[i * 8].weather[0].icon
 
         var iconz = 'http://openweathermap.org/img/wn/' + icon + '@2x.png'
         var iconv = '<img src=' + iconz + '></img>\n '
 
 
-        div.innerHTML = wetha.list[i*8].dt_txt + iconv + "Temp:" + wetha.list[i*8].main.temp + "\n Wind: " + wetha.list[i*8].wind.speed + "\n Humidity: " + wetha.list[i*8].main.humidity
+        div.innerHTML = wetha.list[i * 8].dt_txt + iconv + "Temp:" + wetha.list[i * 8].main.temp + "\n Wind: " + wetha.list[i * 8].wind.speed + "\n Humidity: " + wetha.list[i * 8].main.humidity
 
         console.log("17", div.textContent)
 
         fore.appendChild(div)
     }
-
-
 }
-// }
 
+// GET FORECAST
 var getForecast = function (event) {
     event.preventDefault();
     console.log("10")
@@ -114,5 +116,25 @@ var getForecast = function (event) {
         });
 };
 
+//  STORAGE
+var array = []
+oldsearches = localStorage.getItem("searches")
+if (array === 0) {
+    
+
+}
+
+
+oldsearches.textContent = localStorage.getItem('search')
+ console.log(oldsearches)
+
+localStorage.setItem("searches", array)
+ function saveContent(event) {
+    event.defaultPrevented
+
+    localStorage.setItem('search', citySearchEl.value)
+}
+
 searchButton.addEventListener("click", getWeather);
 searchButton.addEventListener("click", getForecast);
+searchButton.addEventListener("click", saveContent);
